@@ -6,7 +6,7 @@
 #    By: fbanzo-s <fbanzo-s@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/22 12:58:57 by fbanzo-s          #+#    #+#              #
-#    Updated: 2025/05/22 13:52:37 by fbanzo-s         ###   ########.fr        #
+#    Updated: 2025/06/16 01:16:28 by fbanzo-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 SRC_DIR = src
 OBJ_DIR = obj
 
-SRCS = pipex.c
+SRCS = pipex.c utils.c
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))

@@ -6,7 +6,7 @@
 /*   By: fbanzo-s <fbanzo-s@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 13:06:41 by fbanzo-s          #+#    #+#             */
-/*   Updated: 2025/06/18 23:59:52 by fbanzo-s         ###   ########.fr       */
+/*   Updated: 2025/06/19 14:43:37 by fbanzo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ void	ft_error(char *str)
 {
 	ft_printf("%s\n", str);
 	exit(1);
+}
+
+void	ft_erroralternate(char *str)
+{
+	ft_printf("%s\n", str);
+	exit(127);
 }
 
 void	ft_freearray(char **array)

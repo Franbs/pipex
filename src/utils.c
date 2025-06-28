@@ -6,21 +6,21 @@
 /*   By: fbanzo-s <fbanzo-s@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 13:06:41 by fbanzo-s          #+#    #+#             */
-/*   Updated: 2025/06/19 14:43:37 by fbanzo-s         ###   ########.fr       */
+/*   Updated: 2025/06/28 20:23:05 by fbanzo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-void	ft_error(char *str)
+void	ft_error()
 {
-	ft_printf("%s\n", str);
-	exit(1);
+	perror("Error");
+	exit(EXIT_FAILURE);
 }
 
-void	ft_erroralternate(char *str)
+void	ft_erroralternate()
 {
-	ft_printf("%s\n", str);
+	perror("Error command");
 	exit(127);
 }
 
@@ -40,22 +40,14 @@ void	ft_freearray(char **array)
 char	**ft_splitpath(char **envp)
 {
 	int		i;
-	char	*path;
 	char	**dirs;
 
-	path = NULL;
 	i = 0;
-	while (envp[i] && !path)
-	{
-		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
-			path = envp[i] + 5;
+	while (envp[i] && ft_strncmp(envp[i], "PATH", 4) != 0)
 		i++;
-	}
-	if (!path)
+	if (!envp[i])
 		return (NULL);
-	dirs = ft_split(path, ':');
-	if (!dirs)
-		return (NULL);
+	dirs = ft_split(envp[i] + 5, ':');
 	return (dirs);
 }
 
@@ -70,20 +62,20 @@ char	*ft_findpath(char *cmd, char **envp)
 		return (ft_strdup(cmd));
 	dirs = ft_splitpath(envp);
 	if (!dirs)
-		return (NULL);
+		ft_error();
 	i = 0;
-	fullpath = NULL;
 	while (dirs[i])
 	{
 		tmp = ft_strjoin(dirs[i], "/");
 		fullpath = ft_strjoin(tmp, cmd);
 		free(tmp);
 		if (access(fullpath, X_OK) == 0)
-			break ;
+		{
+			ft_freearray(dirs);
+			return (fullpath);
+		}
 		free(fullpath);
-		fullpath = NULL;
 		i++;
 	}
-	ft_freearray(dirs);
-	return (fullpath);
+	return (ft_freearray(dirs), NULL);
 }

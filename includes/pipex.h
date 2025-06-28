@@ -6,7 +6,7 @@
 /*   By: fbanzo-s <fbanzo-s@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:58:48 by fbanzo-s          #+#    #+#             */
-/*   Updated: 2025/06/28 20:17:39 by fbanzo-s         ###   ########.fr       */
+/*   Updated: 2025/06/28 20:26:15 by fbanzo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <sys/wait.h>
 
 // utils.c
-void	ft_error();
-void	ft_erroralternate();
+void	ft_error(void);
+void	ft_erroralternate(void);
 char	**ft_splitpath(char **envp);
 char	*ft_findpath(char *cmd, char **envp);
 void	ft_freearray(char **array);

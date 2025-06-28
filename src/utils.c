@@ -6,19 +6,19 @@
 /*   By: fbanzo-s <fbanzo-s@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 13:06:41 by fbanzo-s          #+#    #+#             */
-/*   Updated: 2025/06/28 20:23:05 by fbanzo-s         ###   ########.fr       */
+/*   Updated: 2025/06/28 20:26:08 by fbanzo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-void	ft_error()
+void	ft_error(void)
 {
 	perror("Error");
 	exit(EXIT_FAILURE);
 }
 
-void	ft_erroralternate()
+void	ft_erroralternate(void)
 {
 	perror("Error command");
 	exit(127);

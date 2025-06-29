@@ -6,7 +6,7 @@
 /*   By: fbanzo-s <fbanzo-s@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:57:01 by fbanzo-s          #+#    #+#             */
-/*   Updated: 2025/06/28 20:18:20 by fbanzo-s         ###   ########.fr       */
+/*   Updated: 2025/06/29 12:48:00 by fbanzo-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ void	ft_execute(char *cmd, char **envp)
 	char	*path;
 	char	**splitcmd;
 
+	if (!cmd || !*cmd)
+	{
+		perror("Error");
+		exit(127);
+	}
 	splitcmd = ft_split(cmd, ' ');
 	path = ft_findpath(splitcmd[0], envp);
 	if (!path)

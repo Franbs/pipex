@@ -6,7 +6,7 @@
 #    By: fbanzo-s <fbanzo-s@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/22 12:58:57 by fbanzo-s          #+#    #+#              #
-#    Updated: 2025/06/16 01:16:28 by fbanzo-s         ###   ########.fr        #
+#    Updated: 2025/06/29 12:35:17 by fbanzo-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADER)
 
 $(NAME): $(LIBFT) $(OBJ) Makefile
 	@echo "$(YELLOW)Compilando $@...$(RESET)"
-	$(CC) $(CFLAGS) $(OBJ) $(MLX) $(MLX_INC) $(MLX_FLAGS) -L$(LIBFT_DIR) -lft -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT_DIR) -lft -o $(NAME)
 	@echo "$(GREEN)Hecho$(RESET)"
 
 clean:
